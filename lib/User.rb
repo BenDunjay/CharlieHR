@@ -14,7 +14,7 @@ class User
     year = today.year - @date_of_birth.year
     if year < 0
       "Congratulations!"
-    elsif year == 0
+    elsif year === 0
       "Under a year old!"
     else
       year - (today.month > @date_of_birth.month || today.month == @date_of_birth.month && today.day >= @date_of_birth.day ? 0 : 1)

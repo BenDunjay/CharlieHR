@@ -43,6 +43,7 @@ RSpec.describe User do
       user = User.new(name, Date.new(2018, 10, 05))
       it " returns age by years" do
         expect(user.age).to eq(2)
+        expect(user.age).to be_an_instance_of(Integer)
       end
     end
   end # age method end
