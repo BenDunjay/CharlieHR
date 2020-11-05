@@ -33,7 +33,7 @@ class User
     end
   end
 
-  def days_until_birthday
+  def days_until_next_birthday
     birthday = Date.new(Date.today.year, @date_of_birth.month, @date_of_birth.day)
     if Date.today.month === birthday.month && Date.today.day === birthday.day
       return "Happy Birthday!"
