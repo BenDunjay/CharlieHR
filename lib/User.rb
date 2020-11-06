@@ -14,7 +14,7 @@ class User
     year = today.year - @date_of_birth.year
     if year < 0
       "Congratulations!"
-    elsif year === 0
+    elsif year == 0
       "Under a year old!"
     else
       year - (today.month > @date_of_birth.month || today.month == @date_of_birth.month && today.day >= @date_of_birth.day ? 0 : 1)
@@ -26,7 +26,7 @@ class User
     today = Time.new
     if @date_of_birth.month - today.month <= 0 && @date_of_birth.day - today.day < 0 || @date_of_birth.month - today.month < 0
       Date.new(today.year + 1, @date_of_birth.month, @date_of_birth.day)
-    elsif @date_of_birth.month - today.month === 0 && @date_of_birth.day - today.day === 0
+    elsif @date_of_birth.month - today.month == 0 && @date_of_birth.day - today.day == 0
       "Happy Birthday!"
     else
       Date.new(today.year, @date_of_birth.month, @date_of_birth.day)
@@ -35,7 +35,7 @@ class User
 
   def days_until_next_birthday
     birthday = Date.new(Date.today.year, @date_of_birth.month, @date_of_birth.day)
-    if Date.today.month === birthday.month && Date.today.day === birthday.day
+    if Date.today.month == birthday.month && Date.today.day == birthday.day
       return "Happy Birthday!"
     end
     if Date.today > birthday
