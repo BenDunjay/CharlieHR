@@ -50,7 +50,7 @@ RSpec.describe User do
 
   describe "# next_birthday method" do
     context "if today is their birthday" do
-      user = User.new(name, Date.new(1990, 11, 05))
+      user = User.new(name, Date.new(1990, 11, Date.today.day))
       it "returns 'Happy Birthday!" do
         expect(user.next_birthday).to eq("Happy Birthday!")
         expect(user.next_birthday).to be_an_instance_of(String)
@@ -76,7 +76,7 @@ RSpec.describe User do
 
   describe "# days_until_next_birthday" do
     context "if today is their birthday" do
-      user = User.new(name, Date.new(1990, 11, 05))
+      user = User.new(name, Date.new(1990, 11, Date.today.day))
       it "returns 'Happy Birthday!" do
         expect(user.days_until_next_birthday).to eq("Happy Birthday!")
         expect(user.days_until_next_birthday).to be_an_instance_of(String)
@@ -86,7 +86,7 @@ RSpec.describe User do
     context "if their birthday is not today" do
       user = User.new(name, Date.new(1990, 12, 30))
       it "returns days until next birthday" do
-        expect(user.days_until_next_birthday).to eq("55 days till next birthday")
+        expect(user.days_until_next_birthday).to eq("54 days till next birthday")
         expect(user.days_until_next_birthday).to be_an_instance_of(String)
       end
     end
